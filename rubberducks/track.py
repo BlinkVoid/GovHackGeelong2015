@@ -1,5 +1,6 @@
 from static import popEn
 from static import popEn2
+from static import popEn3
 
 from static import map_track
 
@@ -9,8 +10,9 @@ class trackPage():
 		self.request = request
 		self.value = self.request.GET
 		self.result = []
-		self.result = popEn.feedPip(str(self.value["lat"]) + " " + str(self.value["lng"]))
-		self.result = popEn2.feedPip2nd(self.result)
+		#self.result = popEn.feedPip(str(self.value["lat"]) + " " + str(self.value["lng"]))
+		#self.result = popEn2.feedPip2nd(self.result)
+		self.result = popEn3.feedPip(str(self.value["lat"]) + " " + str(self.value["lng"]))
 		self.content= ""
 
 	
