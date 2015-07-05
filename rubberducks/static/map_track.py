@@ -8,25 +8,38 @@ class map2():
 		
 		#====changes to display pipeline as a whole
 		self.pipeNetwork = lineslines.mapPipelines()
+		print (self.pipeNetwork)
 		self.pipeLocationDic = {}
 		self.pipeNodeName = []
-		(self.pipeLocationDic, self.pipeNodeName) = self.readLocation(self.pipeNetwork)
+		(self.pipeLocationDic, self.pipeNodeName) = self.readLocation(self.pipeNetwork, 'pipe')
 		#==============================================
-		(self.locationDic, self.nodeName) = self.readLocation(location)
+		(self.locationDic, self.nodeName) = self.readLocation(location, 'node')
 		#print (self.nodeName)
 		#print (self.locationDic)
 		#========================= to be used in plotting plotPolylines
 		#original
 		#pipLineVariable = self.declearVariables()
 		#modified=== feed with variable
-		pipLineVariable = self.declearVariables(self.nodeName)
+		pipLineVariable = self.declearVariables(self.nodeName, "pipLine")
 		#declear varialbe with the pipe network as well
-		pipLineNetVariable = self.declearVariables(self.pipeNodeName)
+		pipLineNetVariable = self.declearVariables(self.pipeNodeName, "NetPipLines")
 		#=========================
 		#declearVariables
-		variableDeclaration = self.genDeclaration()
-		#
-		plotPolylines = pipLineVariable + '''
+		variableDeclaration = self.genDeclaration(self.locationDic, self.nodeName)
+		#declear pipenet varialbe
+		pipLineNetVariableDeclaration = self.genDeclaration(self.pipeLocationDic, self.pipeNodeName)
+		#============original ===============
+		# plotPolylines = pipLineVariable + '''
+		# var flightPath=new google.maps.Polyline({
+		  # path:pipLine,
+		  # strokeColor:"#0063BD",
+		  # strokeOpacity:0.8,
+		  # strokeWeight:5
+		  # });
+		
+		# flightPath.setMap(map);'''
+		#===================changes
+		plotPolylines = pipLineVariable + pipLineNetVariable + '''
 		var flightPath=new google.maps.Polyline({
 		  path:pipLine,
 		  strokeColor:"#0063BD",
@@ -35,7 +48,7 @@ class map2():
 		  });
 
 		flightPath.setMap(map);'''
-		#===================
+		#=======================
 		self.api = '''
 		<script>'''
 		self.api += variableDeclaration
@@ -87,24 +100,24 @@ class map2():
 			*/
 		</script>
 		'''
-	def readLocation(self,location):
+	def readLocation(self,location, tName):
 		index = 0
 		nodeName = []
-		locationCoordinates = []
+		# locationCoordinates = []
 		locationDic = {}
 		
 		for i in range(int(len(location) / 2)):
-			nodeName.append("node" + str(i))
-		for c in range(int(len(location) - 1)):
-			locationCoordinates.append(c)
+			nodeName.append(tName + str(i))
+		# for c in range(int(len(location) - 1)):
+			# locationCoordinates.append(c)
 		while index < len(nodeName):
 			locationDic[nodeName[index]] = [location[index*2], location[index*2 + 1]]
 			index += 1
 		return (locationDic, nodeName)
 	#==original== 
 	#def declearVariables(self):
-	def declearVariables(self, nodeList):
-		variableString = "var pipLine = ["
+	def declearVariables(self, nodeList, graphName):
+		variableString = "var " + graphName + " = ["
 		indexc = 0
 		#while indexc < (len(self.nodeName) - 1):
 		while indexc < (len(nodeList) - 1):
@@ -112,12 +125,16 @@ class map2():
 			variableString += (nodeList[indexc] + ", ")
 			indexc += 1
 		#variableString += (self.nodeName[indexc] + " ];")
+		##might cause problem here
+		#variableString += "];"
 		variableString += (nodeList[indexc] + " ];")
 		return variableString
 		
-	def genDeclaration(self):
+	def genDeclaration(self, tNodeDic, tNodeName):
 		variableDeclaration = ""
-		for name in self.nodeName:
-			variableDeclaration += ("var " + name + " = new google.maps.LatLng(" + str(self.locationDic[name][0]) + ", " + str(self.locationDic[name][1]) + ");")
+		print("len: " + str(len(tNodeName)))
+		#print(tNodeName)
+		for name in tNodeName:
+			variableDeclaration += ("var " + name + " = new google.maps.LatLng(" + str(tNodeDic[name][0]) + ", " + str(tNodeDic[name][1]) + ");")
 		return variableDeclaration
 		
