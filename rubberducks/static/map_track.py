@@ -5,12 +5,23 @@ class map2():
 	def __init__(self, location, value):
 		self.locationDic = {}
 		self.nodeName = []
-		#=========================
+		
+		#====changes to display pipeline as a whole
+		self.pipeNetwork = lineslines.mapPipelines()
+		self.pipeLocationDic = {}
+		self.pipeNodeName = []
+		(self.pipeLocationDic, self.pipeNodeName) = self.readLocation(self.pipeNetwork)
+		#==============================================
 		(self.locationDic, self.nodeName) = self.readLocation(location)
-		print (self.nodeName)
-		print (self.locationDic)
+		#print (self.nodeName)
+		#print (self.locationDic)
 		#========================= to be used in plotting plotPolylines
-		pipLineVariable = self.declearVariables()
+		#original
+		#pipLineVariable = self.declearVariables()
+		#modified=== feed with variable
+		pipLineVariable = self.declearVariables(self.nodeName)
+		#declear varialbe with the pipe network as well
+		pipLineNetVariable = self.declearVariables(self.pipeNodeName)
 		#=========================
 		#declearVariables
 		variableDeclaration = self.genDeclaration()
@@ -90,13 +101,18 @@ class map2():
 			locationDic[nodeName[index]] = [location[index*2], location[index*2 + 1]]
 			index += 1
 		return (locationDic, nodeName)
-	def declearVariables(self):
+	#==original== 
+	#def declearVariables(self):
+	def declearVariables(self, nodeList):
 		variableString = "var pipLine = ["
 		indexc = 0
-		while indexc < (len(self.nodeName) - 1):
-			variableString += (self.nodeName[indexc] + ", ")
+		#while indexc < (len(self.nodeName) - 1):
+		while indexc < (len(nodeList) - 1):
+			#variableString += (self.nodeName[indexc] + ", ")
+			variableString += (nodeList[indexc] + ", ")
 			indexc += 1
-		variableString += (self.nodeName[indexc] + " ];")
+		#variableString += (self.nodeName[indexc] + " ];")
+		variableString += (nodeList[indexc] + " ];")
 		return variableString
 		
 	def genDeclaration(self):

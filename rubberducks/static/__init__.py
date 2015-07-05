@@ -6,3 +6,4 @@ from .htmltemplate import body
 from .htmltemplate import header
 from .fish import text
 from .spill import checkspill
+from .lineslines import mapPipelines
