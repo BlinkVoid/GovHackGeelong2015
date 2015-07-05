@@ -18,7 +18,8 @@ class mainPage():
 		''')
 		self.body = htmltemplate.body
 		self.body += ("""
-						
+				<div id="info">
+				</div>
 				</div>
 			</div>
 

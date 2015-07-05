@@ -27,22 +27,21 @@ body='''
 					<div class="subp_right">
 						<div id="googleMap" style="width:60vw;height:60vh;"></div>
 					</div>
-					<div class="infoDisplay"
+					<div class="infoDisplay">
 						<div class="subp_bottom">
-							<p>After selecting your location, click to button below</p>
+							<p id='description'>After selecting your location, click to button below</p>
 							<form action="track" method="GET">
 								Latitude: <input type="text" id= "lat" class="coordiantes" value="Drag the pin" name="lat"><br>
 								Longitude: <input type="text" id="lng" class="coordinates" value="Drag the pin" name="lng"><br>
 								<p>What do you put down the storm water drain?</p>
 								<select name="spill" class="coordinates">
-								<option value="detergent">Detergent</option>
-								<option value="oil">Oil</option>
-								<option value="duck">Rubber Ducky</option>
+									<option value="detergent">Detergent</option>
+									<option value="oil">Oil</option>
+									<option value="duck">Rubber Ducky</option>
 								</select>
 								<input type="submit" value="Submit">
 							</form>
-						</div>
-					
+						</div>	
 		'''
 		
 header = '''

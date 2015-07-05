@@ -69,7 +69,7 @@ class map2():
 				var mapProp = {
 					center: myCenter,
 					zoom: 17,
-					mapTypeId: google.maps.MapTypeId.ROADMAP
+					mapTypeId: google.maps.MapTypeId.HYBRID
 				};
 				map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
 				//event click to drop a pin
