@@ -1,5 +1,4 @@
 from static import popEn3
-from static import map
 from static import map_track
 from static import htmltemplate
 from static import spill

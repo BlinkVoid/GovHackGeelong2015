@@ -1,3 +1,5 @@
+from static import lineslines
+
 class map2():	
 	
 	def __init__(self, location, value):
@@ -39,7 +41,7 @@ class map2():
 				var mapProp = {
 					center: myCenter,
 					zoom: 17,
-					mapTypeId: google.maps.MapTypeId.HYBRID
+					mapTypeId: google.maps.MapTypeId.ROADMAP
 				};
 				map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
 				//event click to drop a pin
