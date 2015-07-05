@@ -58,16 +58,6 @@ Team Prizes
 
 We are three University students (at Deakin University) and a researcher (University of Melbourne) and would like to enter the Best Higher Education Team category. Email addresses to prove it: griffinp@unimelb.edu.au; thanhbi@deakin.edu.au; rgoliver@deakin.edu.au; rogerz@deakin.edu.au
 
- 
-
-The Hacker Vote Project Rating: 
-Give it 1/5
-Give it 2/5
-Give it 3/5
-Give it 4/5
-Give it 5/5
-No votes yet
-Vote here out of 5 stars for your favourite projects!
 Video URL: 
 https://youtu.be/1naTkYjDLEE
 Proof of Concept Repository URL - Code Repository, source material or stages of development records: 
