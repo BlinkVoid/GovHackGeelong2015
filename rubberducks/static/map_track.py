@@ -1,5 +1,5 @@
 from static import lineslines
-
+from static import pipelineNetwork
 class map2():	
 	
 	def __init__(self, location, value):
@@ -7,11 +7,14 @@ class map2():
 		self.nodeName = []
 		
 		#====changes to display pipeline as a whole
-		self.pipeNetwork = lineslines.mapPipelines()
-		print (self.pipeNetwork)
-		self.pipeLocationDic = {}
-		self.pipeNodeName = []
-		(self.pipeLocationDic, self.pipeNodeName) = self.readLocation(self.pipeNetwork, 'pipe')
+		#self.pipeNetwork = lineslines.mapPipelines()
+		#print (self.pipeNetwork)
+		#self.pipeLocationDic = {}
+		#self.pipeNodeName = []
+		#(self.pipeLocationDic, self.pipeNodeName) = self.readLocation(self.pipeNetwork, 'pipe')
+		
+		# for a in range(10):
+			# print("name " + self.pipeNodeName[a] + self.pipeLocationDic[self.pipeNodeName[a]])
 		#==============================================
 		(self.locationDic, self.nodeName) = self.readLocation(location, 'node')
 		#print (self.nodeName)
@@ -22,12 +25,13 @@ class map2():
 		#modified=== feed with variable
 		pipLineVariable = self.declearVariables(self.nodeName, "pipLine")
 		#declear varialbe with the pipe network as well
-		pipLineNetVariable = self.declearVariables(self.pipeNodeName, "NetPipLines")
+		#pipLineNetVariable = self.declearVariables(self.pipeNodeName, "NetPipLines")
 		#=========================
 		#declearVariables
 		variableDeclaration = self.genDeclaration(self.locationDic, self.nodeName)
 		#declear pipenet varialbe
-		pipLineNetVariableDeclaration = self.genDeclaration(self.pipeLocationDic, self.pipeNodeName)
+		#=========using static declearation for speed.
+		#pipLineNetVariableDeclaration = self.genDeclaration(self.pipeLocationDic, self.pipeNodeName)
 		#============original ===============
 		# plotPolylines = pipLineVariable + '''
 		# var flightPath=new google.maps.Polyline({
@@ -39,7 +43,7 @@ class map2():
 		
 		# flightPath.setMap(map);'''
 		#===================changes
-		plotPolylines = pipLineVariable + pipLineNetVariable + '''
+		plotPolylines = pipLineVariable + '''
 		var flightPath=new google.maps.Polyline({
 		  path:pipLine,
 		  strokeColor:"#0063BD",

@@ -9,7 +9,7 @@ body='''
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/stormwatermonitor/">Rubber Duck XIII - the pollution tracker system</a>
+          <a class="navbar-brand" href="/stormwatermonitor/">Mighty Rubber Duck - the pollution tracker system</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -27,26 +27,22 @@ body='''
 					<div class="subp_right">
 						<div id="googleMap" style="width:60vw;height:60vh;"></div>
 					</div>
-					<div class="subp_bottom">
-						<p>After selecting your location, click to button below</p>
-						<form action="track" method="GET">
-							Latitude: <input type="text" id= "lat" class="coordiantes" value="Drag the pin" name="lat"><br>
-							Longitude: <input type="text" id="lng" class="coordinates" value="Drag the pin" name="lng"><br>
-							<select name="spill">
-							<option value="detergent">Detergent</option>
-							<option value="oil">Oil</option>
-							<option value="duck">Rubber Ducky</option>
-							</select>
-							<input type="submit" value="Submit">
-						</form>
-					</div>
-				</div>
-
-    </div><!-- /.container -->
-				
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-				<script src="/static/js/bootstrap.min.js"></script>
-			</body>
+					<div class="infoDisplay"
+						<div class="subp_bottom">
+							<p>After selecting your location, click to button below</p>
+							<form action="track" method="GET">
+								Latitude: <input type="text" id= "lat" class="coordiantes" value="Drag the pin" name="lat"><br>
+								Longitude: <input type="text" id="lng" class="coordinates" value="Drag the pin" name="lng"><br>
+								<p>What do you put down the storm water drain?</p>
+								<select name="spill" class="coordinates">
+								<option value="detergent">Detergent</option>
+								<option value="oil">Oil</option>
+								<option value="duck">Rubber Ducky</option>
+								</select>
+								<input type="submit" value="Submit">
+							</form>
+						</div>
+					
 		'''
 		
 header = '''

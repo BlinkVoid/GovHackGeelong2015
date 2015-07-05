@@ -34,7 +34,7 @@ class trackPage():
 		head = htmltemplate.header
 		head += map_track.map2(self.result, self.value).api
 		head += ('''
-					<title>Rubber Duck - follow the pollution</title>
+					<title>Mighty Ducks Storm-water Tracker - follow the pollution</title>
 				</head>
 		''')
 		body = htmltemplate.body
@@ -47,8 +47,14 @@ class trackPage():
 		#body += testLat
 		body += spill.spill(str(self.value["spill"]))
 		body += ("""
-						</div>
-					</div>
-				</body>""")
+						
+				</div>
+			</div>
+
+    </div><!-- /.container -->
+				
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+				<script src="/static/js/bootstrap.min.js"></script>
+			</body>""")
 		html_c = "</html>"
 		self.content = html_o + head + body + html_c

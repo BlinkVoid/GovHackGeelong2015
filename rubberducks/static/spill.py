@@ -11,7 +11,7 @@ def checkspill(type):
 		return """Your rubber duckie has floated out to sea. Eventually it will break down into smaller pieces, small enough for birds, fish and seals to eat. Plastic doesn't provide any nutrition and can kill animals.It can break down further into tiny particles called 'microplastics'."""
 
 def spill(type):
-	result = "<div>"
+	result = "<div id='info'>"
 	result += checkspill(type)
 	result += "</div>"
 	return result

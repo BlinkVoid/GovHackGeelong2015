@@ -13,10 +13,17 @@ class mainPage():
 		self.head += ('''
 				<!--v0.3-getting the form updated according to the drag drop pin-->
 
-				<title>Rubber Duck - follow the pollution</title>
+				<title>Mighty Ducks Storm-water Tracker - follow the pollution</title>
 			</head>
 		''')
 		self.body = htmltemplate.body
+		self.body += ("""
+						
+				</div>
+			</div>
+
+    </div><!-- /.container -->
+			</body>""")
 		self.content= self.HTML_o + self.head + self.body + self.HTML_c
 '''
 changeLog:
