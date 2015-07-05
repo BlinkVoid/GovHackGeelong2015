@@ -1,6 +1,6 @@
 class map2():	
 	
-	def __init__(self, location):
+	def __init__(self, location, value):
 		self.locationDic = {}
 		self.nodeName = []
 		#=========================
@@ -30,10 +30,10 @@ class map2():
 			var map;
 			//var maker = new google.maps.Marker({map:map, })
 			//var infowindow = new google.maps.InfoWindow();
-			var marker;
-			var infowindow;
+			//var marker;
+			//var infowindow;
 			var fLng, fLat;
-			var myCenter = new google.maps.LatLng(-38.144061, 144.360345); //lag and lng
+			var myCenter = new google.maps.LatLng(''' + value['lat'] + ''',''' + value['lng'] + ''' ); //lag and lng
 
 			function initialize() {
 				var mapProp = {
