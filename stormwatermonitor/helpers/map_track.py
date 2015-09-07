@@ -1,5 +1,5 @@
-from stormwatermonitor.helpers import lineslines
-from stormwatermonitor.helpers import pipelineNetwork
+#from .helpers import lineslines
+#from .helpers import pipelineNetwork
 class map2():	
 	
 	def __init__(self, location, value):
